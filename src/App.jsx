@@ -1,6 +1,6 @@
 import './assets/styles/App.css';
 import * as React from 'react';
-import Form from './components/Form.js'
+import Form from './components/Form'
 import TodoList from './components/TodoList'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline';
