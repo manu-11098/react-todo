@@ -1,4 +1,4 @@
-br# React Todo
+# React Todo
 
 Simple Todo app using React, firebase realtime database and MUI Library.
 
