@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import database from '../services/firebase'
 import { push, ref } from 'firebase/database'
-import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
-import { Snackbar, Box, Alert } from '@mui/material/';
+import { Button, IconButton, Snackbar, Box, Alert } from '@mui/material/';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -32,11 +32,10 @@ export default function Form() {
       if (title !== '') {
          const todo = { title, completed: false }
          push(ref(db, '/todos'), todo)
+         setTitle('')
       } else {
          toggleAlert()
       }
-
-
    }
 
    return (
@@ -59,11 +58,23 @@ export default function Form() {
             }}
          >
             <TextField
+               sx={{
+                  width: '250px'
+               }}
                onChange={handleOnChange}
                value={title}
                size="small"
                variant="outlined"
                placeholder="Go to the moon..."
+               InputProps={{
+                  endAdornment: title && (
+                     <IconButton
+                        onClick={() => setTitle("")}
+                     >
+                        <CloseIcon />
+                     </IconButton>
+                  )
+               }}
             />
             <Button
                color="primary"
